@@ -25,7 +25,8 @@ app.post('/webhook', async (req, res) => {
 
   // تأكد إنها رسالة واردة من العميل
   if (body.event !== 'message_created') return;
-  if (body.message_type !== 'incoming') return;
+  const isIncoming = body.message_type === 'incoming' || body.message_type === 0;
+if (!isIncoming) return;
   if (!body.content || body.content.trim().length < 1) return;
 
   const conversationId = body.conversation?.id;
