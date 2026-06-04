@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: trust-labs-bot
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: BEVATEL_API_TOKEN
+        sync: false
+      - key: BEVATEL_ACCOUNT_ID
+        value: "1324"
+      - key: BEVATEL_BASE_URL
+        value: "https://chat.bevatel.com"
